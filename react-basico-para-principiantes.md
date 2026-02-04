@@ -36,7 +36,75 @@ const elemento = React.createElement('h1', null, '¡Hola mundo!');
 
 ## Componentes: Los Bloques de Construcción
 
-Un componente es simplemente una función que devuelve JSX:
+### 🎯 La Regla Fundamental de React
+
+**En React: Los componentes SON funciones, pero no todas las funciones son componentes.**
+
+Un **componente** es una función que:
+- ✅ Devuelve JSX (etiquetas HTML)
+- ✅ Se puede renderizar en la interfaz
+- ✅ Recibe props como parámetros
+
+Una **función normal** es una función que:
+- ❌ No devuelve JSX
+- ❌ No se renderiza en la interfaz
+- ✅ Hace cálculos, lógica o manipula datos
+
+### Componente vs Función Normal
+
+#### ✅ COMPONENTE (devuelve JSX)
+```javascript
+// Esto es un COMPONENTE
+const Header = ({ titulo }) => {
+    return <h1>{titulo}</h1>;
+};
+
+// Se usa así en JSX:
+<Header titulo="Mi App" />
+```
+
+#### ❌ FUNCIÓN NORMAL (no devuelve JSX)
+```javascript
+// Esto es una FUNCIÓN NORMAL
+const calcularTotal = (numeros) => {
+    return numeros.reduce((total, n) => total + n, 0);
+};
+
+// Se usa así:
+const total = calcularTotal([1, 2, 3]);
+```
+
+### Cómo Identificar si es Componente o Función
+
+#### 📋 Regla Rápida
+1. **¿Devuelve etiquetas HTML/JSX?** → Es **componente**
+2. **¿Se usa como `<Nombre />`?** → Es **componente**
+3. **¿Hace cálculos o lógica?** → Es **función normal**
+4. **¿Se llama como `nombre()`?** → Es **función normal**
+
+#### 🎯 Ejemplos Prácticos
+
+```javascript
+// ✅ COMPONENTE: Devuelve JSX
+const Boton = ({ texto }) => {
+    return <button>{texto}</button>;
+};
+
+// ❌ FUNCIÓN NORMAL: No devuelve JSX
+const formatearFecha = (fecha) => {
+    return fecha.toLocaleDateString();
+};
+
+// ✅ COMPONENTE: Se renderiza
+const App = () => {
+    return (
+        <div>
+            <Boton texto="Clic" />
+            <p>Hoy es {formatearFecha(new Date())}</p>
+        </div>
+    );
+};
+```
 
 ### Componente Básico (01-hola-mundo.html)
 
