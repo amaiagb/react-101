@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola Mundo - React</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #5568d3;
+        }
+        #root {
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin: 0 0 1rem 0;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 1rem;
+        }
+        button:hover {
+            background: #5568d3;
+        }
+        .counter {
+            font-size: 2rem;
+            color: #667eea;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- React y ReactDOM desde CDN -->
+    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel para usar JSX -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+
+    <script type="text/babel">
+        /*un componente es simplemente una función que devuelve lo que se quiere mostrar en pantalla.*/
+        function HolaMundo() {
+            /*Esta línea crea una variable especial llamada contador y una función llamada setContador.
+            React.useState(0) significa: “crea un valor inicial igual a 0 y dame una manera de cambiarlo”.
+            contador = valor actual
+            setContador = función para actualizar ese valor
+            Cada vez que llames a setContador, React vuelve a dibujar (renderizar) el componente mostrando el nuevo valor.*/
+            const [contador, setContador] = React.useState(0);
+
+            return (
+                <div>
+                    <h1>¡Hola Mundo con React!</h1>
+                    <p>Este es un ejemplo usando React desde CDN</p>
+                    <div className="counter">
+                        Contador: {contador}
+                    </div>
+                    <button onClick={() => setContador(contador + 1)}>
+                        Incrementar
+                    </button>
+                    <button onClick={() => setContador(0)} style={{marginLeft: '10px'}}>
+                        Resetear
+                    </button>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<HolaMundo />);
+    </script>
+</body>
+</html>

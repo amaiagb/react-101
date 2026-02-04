@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola Mundo - React</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #667eea;
+        }
+        #root {
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            color: #333;
+            margin: 0;
+            font-size: 3rem;
+        }
+        p {
+            color: #666;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // Componente funcional básico sin estado
+        function HolaMundo() {
+            return (
+                <div className="container">
+                    <h1>¡Hola mundo!</h1>
+                    <p>Este es un componente React básico usando CDN</p>
+                </div>
+            );
+        }
+
+        // Renderizar el componente
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<HolaMundo />);
+    </script>
+</body>
+</html>
